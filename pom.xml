@@ -8,17 +8,29 @@
         <version>2.2.7.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>net.cloudburo.poc</groupId>
     <artifactId>spring-hateoas</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-hateoas</name>
     <description>Demo project for Spring Boot Hateos App</description>
 
+    <!-- Required due to the fact that Elastic-Search Version 4.0 isn't fully released
+         Maps to ElasticSearch Version 7 release -->
+    <repositories>
+        <repository>
+            <id>my-id</id>
+            <name>milestone</name>
+            <url>https://maven.springframework.org/milestone/</url>
+        </repository>
+    </repositories>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+        <!-- Dependencies for HATEOAS -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-hateoas</artifactId>
@@ -37,6 +49,25 @@
         <dependency>
             <groupId>com.jayway.jsonpath</groupId>
             <artifactId>json-path</artifactId>
+        </dependency>
+        <!-- Dependencies for JPA -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+        <!-- Dependencies for ElasticSearch -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-elasticsearch</artifactId>
+            <version>4.0.0.RC1</version>
         </dependency>
     </dependencies>
 
